@@ -110,16 +110,6 @@
     "hash": "sha256-0AqQ2gMS8iNlYkrD+BxtIg7cXMnr9xZHtKAuN4bjfaQ="
   },
   {
-    "pname": "Microsoft.NETFramework.ReferenceAssemblies",
-    "version": "1.0.2",
-    "hash": "sha256-CkB8iyn+WeG9rwCB5HFC/E4Dqr9W1ZQOAhbu2pHNgkQ="
-  },
-  {
-    "pname": "Microsoft.NETFramework.ReferenceAssemblies.net461",
-    "version": "1.0.2",
-    "hash": "sha256-4iJ/QJ2LhqTMrGsredRuQ/xSdYVnwwuwQP1ra8RtQ0s="
-  },
-  {
     "pname": "Microsoft.Win32.Primitives",
     "version": "4.3.0",
     "hash": "sha256-mBNDmPXNTW54XLnPAUwBRvkIORFM7/j0D0I2SyQPDEg="
@@ -1088,11 +1078,6 @@
     "pname": "System.Xml.XmlDocument",
     "version": "4.3.0",
     "hash": "sha256-kbuV4Y7rVJkfMp2Kgoi8Zvdatm9CZNmlKB3GZgANvy4="
-  },
-  {
-    "pname": "Tommy",
-    "version": "3.1.2",
-    "hash": "sha256-To5O34Fyl/Y7e7MT+OqlODAL5MHzFDJO4kHgyXZym0I="
   },
   {
     "pname": "Veldrid",
