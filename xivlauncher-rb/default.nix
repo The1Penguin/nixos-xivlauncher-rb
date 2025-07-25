@@ -19,16 +19,17 @@
 }:
 
 let
-  tag = "1.1.2.5";
+  ver = "1.1.2.5";
+  tag = "rb-v${ver}";
 in
 buildDotnetModule rec {
   pname = "xivlauncher-rb";
-  version = tag;
+  version = ver;
 
   src = fetchFromGitHub {
     owner = "rankynbass";
     repo = "XIVLauncher.Core";
-    rev = "rb-v${tag}";
+    rev = tag;
     hash = "sha256-Uj/AAQR26h7/T03Ss8LFhzITlqqU0+rBv8BCAR/3nn8=";
     fetchSubmodules = true;
   };
@@ -55,7 +56,7 @@ buildDotnetModule rec {
   dotnet-runtime = dotnetCorePackages.runtime_8_0;
 
   dotnetFlags = [
-    "-p:BuildHash=${tag}"
+    "-p:BuildHash=${ver}"
     "-p:PublishSingleFile=false"
   ];
 
@@ -65,6 +66,7 @@ buildDotnetModule rec {
   '';
 
   postInstall = ''
+    echo -n '${tag}' > $out/lib/${pname}/versiondata
     mkdir -p $out/share/pixmaps
     cp src/XIVLauncher.Core/Resources/logo.png $out/share/pixmaps/xivlauncher.png
   '';
