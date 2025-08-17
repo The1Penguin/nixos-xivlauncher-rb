@@ -19,7 +19,7 @@
 }:
 
 let
-  ver = "1.1.2.5";
+  ver = "1.2.1.2";
   tag = "rb-v${ver}";
 in
 buildDotnetModule rec {
@@ -30,7 +30,7 @@ buildDotnetModule rec {
     owner = "rankynbass";
     repo = "XIVLauncher.Core";
     rev = tag;
-    hash = "sha256-Uj/AAQR26h7/T03Ss8LFhzITlqqU0+rBv8BCAR/3nn8=";
+    hash = "sha256-/LYOBEoCs6I5uP3wPzH7IkGn59FiNXDrDHvV2UwXTr4=";
     fetchSubmodules = true;
   };
 
