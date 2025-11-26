@@ -24,6 +24,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v6
+        # FIXME Remove the option below once
+        # https://github.com/DeterminateSystems/update-flake-lock/issues/223
+        # is fixed
+        with:
+          persist-credentials: false
 
       - uses: DeterminateSystems/nix-installer-action@v21
         with:
