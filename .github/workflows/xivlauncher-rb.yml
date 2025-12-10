@@ -38,7 +38,7 @@ jobs:
       - run: nix run github:Mic92/nix-update -- xivlauncher-rb --url 'https://github.com/rankynbass/XIVLauncher.Core' --flake --commit --version-regex 'rb-v(.*)'
 
       - id: create-pr
-        uses: peter-evans/create-pull-request@v7
+        uses: peter-evans/create-pull-request@v8
         with:
           branch: update_xivlauncher-rb
           delete-branch: true
