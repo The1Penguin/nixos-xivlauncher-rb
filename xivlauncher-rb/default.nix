@@ -19,7 +19,7 @@
 }:
 
 let
-  ver = "1.2.1.7";
+  ver = "1.3.1.1";
   tag = "rb-v${ver}";
 in
 buildDotnetModule rec {
@@ -30,7 +30,7 @@ buildDotnetModule rec {
     owner = "rankynbass";
     repo = "XIVLauncher.Core";
     rev = tag;
-    hash = "sha256-PEX1a8ITB53hWoqnshDxvjWcabY9mq52jBILyfxSZ+w=";
+    hash = "sha256-+mbnt6QYISMTfHOQLtDJ8EB1QtZC5AhwhbysGuylzNU=";
     fetchSubmodules = true;
   };
 
@@ -52,8 +52,8 @@ buildDotnetModule rec {
   nugetDeps = ./deps.json; # File generated with `nix-build -A xivlauncher-rb.passthru.fetch-deps`
 
   # please do not unpin these even if they match the defaults, xivlauncher is sensitive to .NET versions
-  dotnet-sdk = dotnetCorePackages.sdk_8_0;
-  dotnet-runtime = dotnetCorePackages.runtime_8_0;
+  dotnet-sdk = dotnetCorePackages.dotnet_9.sdk;
+  dotnet-runtime = dotnetCorePackages.runtime_9_0-bin;
 
   dotnetFlags = [
     "-p:BuildHash=${ver}"
@@ -61,7 +61,7 @@ buildDotnetModule rec {
   ];
 
   postPatch = ''
-    substituteInPlace lib/FFXIVQuickLauncher/src/XIVLauncher.Common/Game/Patch/Acquisition/Aria/AriaHttpPatchAcquisition.cs \
+    substituteInPlace lib/FFXIVQuickLauncher/src/XIVLauncher.Common/Game/Patch/Acquisition/Aria/AriaPatchAcquisition.cs \
       --replace-fail 'ariaPath = "aria2c"' 'ariaPath = "${aria2}/bin/aria2c"'
   '';
 
@@ -90,7 +90,7 @@ buildDotnetModule rec {
       in
       ''
         substituteInPlace $out/bin/XIVLauncher.Core \
-          --replace 'exec' 'exec ${steam-run}/bin/steam-run'
+          --replace-warn 'exec' 'exec ${steam-run}/bin/steam-run'
       ''
     )
     + ''
