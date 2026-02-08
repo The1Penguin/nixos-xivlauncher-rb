@@ -35,7 +35,7 @@ jobs:
           mkdir -p ~/.config/nixpkgs
           echo "{ allowUnfree = true; }" > ~/.config/nixpkgs/config.nix
 
-      - run: nix run github:Mic92/nix-update -- xivlauncher-rb --url 'https://github.com/rankynbass/XIVLauncher.Core' --flake --commit --version-regex 'rb-v(.*)'
+      - run: nix run github:Mic92/nix-update?ref=v1.14.0 -- xivlauncher-rb --url 'https://github.com/rankynbass/XIVLauncher.Core' --flake --commit --version-regex 'rb-v(.*)'
 
       - id: create-pr
         uses: peter-evans/create-pull-request@v8
