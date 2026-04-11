@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
-      - uses: canidae-solutions/lix-quick-install-action@v4
+      - uses: DeterminateSystems/nix-installer-action@v22
         with:
           # source-url: https://install.lix.systems/lix/lix-installer-x86_64-linux
           diagnostic-endpoint: ""
@@ -30,7 +30,7 @@ jobs:
           mkdir -p ~/.config/nixpkgs
           echo "{ allowUnfree = true; }" > ~/.config/nixpkgs/config.nix
 
-      - run: nix run github:Mic92/nix-update?ref=v1.14.0 -- xivlauncher-rb --url 'https://github.com/rankynbass/XIVLauncher.Core' --flake --commit --version-regex 'rb-v(.*)'
+      - run: nix run github:Mic92/nix-update?ref=1.13.1 -- xivlauncher-rb --url 'https://github.com/rankynbass/XIVLauncher.Core' --flake --commit --version-regex 'rb-v(.*)'
 
       - id: create-pr
         uses: peter-evans/create-pull-request@v8
