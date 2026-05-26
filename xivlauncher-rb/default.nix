@@ -19,7 +19,7 @@
 }:
 
 let
-  ver = "1.4.0.2";
+  ver = "1.4.0.5";
   tag = "rb-v${ver}";
 in
 buildDotnetModule rec {
